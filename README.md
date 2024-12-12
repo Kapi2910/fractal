@@ -7,7 +7,7 @@ This Python module provides a comprehensive suite of tools for estimating the fr
 ## Features
 
 - **Box Counting**: Supports variations including original box counting, oversampling, and exact box counting methods.
-- **Generalized Fractal Dimensions**: Enables the calculation of higher-order fractal dimensions (e.g., q-dimensions).
+- **Generalized Fractal Dimensions**: Enables the calculation of generalized fractal dimensions.
 - **Temporal Sampling**: Offers sub-sampling with variable step sizes in time to estimate fractal dimensions, making it highly suitable for fractal dimension analysis in fixed frame rate videos.
 - **Correlation Sum**: Computes correlation dimensions using standard and Takens' methods.
 - **Elbow Scale Detection**: Identifies optimal scales for fractal analysis using threshold or regression-based techniques, making it highly suitable for quantitative comparisons of fractal dimensions across different conditions.
@@ -105,7 +105,7 @@ print("Fractal Dimension:", result["fd"])
 print("R²:", result["r_squared"])
 ```
 
-Additional examples and tutorials are available in `tests/fractal_tests.ipynb`.
+Additional examples and tutorials are available in [`tests/fractal_tests.ipynb`](tests/fractal_tests.ipynb).
 
 ---
 

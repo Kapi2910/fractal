@@ -119,7 +119,7 @@ The module includes a supplementary `utils` library for:
 
 ## Reference
 
-Cui, T., Wang, T. *"Exact Box-Counting and Temporal Sampling Algorithms for Fractal Dimension Estimation with Applications to Animal Behavior Analysis."*
+Cui, T., & Wang, T. (2024). Exact box-counting and temporal sampling algorithms for fractal dimension estimation with applications to animal behavior analysis. *Results in Engineering.* https://doi.org/10.1016/j.rineng.2024.103755
 
 ---
 

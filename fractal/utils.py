@@ -1,5 +1,4 @@
 import numpy as np
-import pandas as pd
 from scipy import odr
 import matplotlib.pyplot as plt
 
@@ -193,42 +192,6 @@ def plot_grid(xt, idx, s, use_lim=True, figsize=(9, 8)):
     return fig
 
 
-def gen_circle(n=5000):
-    v = 2 * np.pi / n
-    t = np.array(range(n))
-    x = np.sin(v * t) + 1
-    y = np.cos(v * t) + 1
-    eps = 1e-10
-
-    df = pd.DataFrame([x, y]).T
-    df.columns = ["x", "y"]
-    md = max(df.x.max() - df.x.min(), df.y.max() - df.y.min())
-    df["nx"] = (df.x - df.x.min()) / md * (1 - eps) + 0.5 * eps
-    df["ny"] = (df.y - df.y.min()) / md * (1 - eps) + 0.5 * eps
-
-    xs = df[["nx", "ny"]].values
-    return xs
-
-
-def gen_line(xs0, n=5000, normalization=True):
-    xs = []
-    for t in np.array(xs0).T:
-        xs.append(np.linspace(t[0], t[1], n))
-    eps = 1e-10
-
-    df = pd.DataFrame(xs).T
-    df.columns = ["x", "y"]
-    md = max(df.x.max() - df.x.min(), df.y.max() - df.y.min())
-    df["nx"] = (df.x - df.x.min()) / md * (1 - eps) + 0.5 * eps
-    df["ny"] = (df.y - df.y.min()) / md * (1 - eps) + 0.5 * eps
-
-    if normalization is True:
-        xs = df[["nx", "ny"]].values
-    else:
-        xs = df[["x", "y"]].values
-    return xs
-
-
 # https://github.com/TheAlgorithms/Python/blob/master/fractals/koch_snowflake.py
 # ===================================
 # Koch Snowflake Generator
@@ -266,24 +229,3 @@ def iterate(vectors, steps):
         vectors = iteration_step(vectors)
     return vectors
 
-
-def gen_koch(steps=4, shape="snowflake"):
-    """Generate a Koch snowflake or curve."""
-    initial_vectors = (
-        [
-            np.array([0, 0]),
-            np.array([0.5, np.sqrt(3) / 2]),
-            np.array([1, 0]),
-            np.array([0, 0]),
-        ]
-        if shape == "snowflake"
-        else [np.array([0, 0]), np.array([1, 0])]
-    )
-
-    vectors = iterate(initial_vectors, steps)
-    df = pd.DataFrame(vectors, columns=["x", "y"])
-    md = max(df.x.max() - df.x.min(), df.y.max() - df.y.min())
-    eps = 1e-10
-    df["nx"] = (df.x - df.x.min()) / md * (1 - eps) + 0.5 * eps
-    df["ny"] = (df.y - df.y.min()) / md * (1 - eps) + 0.5 * eps
-    return df[["nx", "ny"]].values

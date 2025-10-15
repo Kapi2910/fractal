@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.interpolate import interp1d, splprep, splev
 from scipy import stats
-from utils import find_ranges_pct, find_ranges_ls, get_reflex
+from .utils import find_ranges_pct, find_ranges_ls, get_reflex
 
 
 def _get_box(points, scale):

@@ -1,5 +1,5 @@
 import numpy as np
-from scipy import odr
+from scipy import odr, stats
 import matplotlib.pyplot as plt
 
 

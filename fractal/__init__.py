@@ -1,2 +1,2 @@
-from .utils import *
-from .fractal import *
+from . import utils
+from . import fractal
